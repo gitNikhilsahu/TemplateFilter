@@ -1,0 +1,66 @@
+{% extends 'Base.html' %}
+{% load static %}
+
+{% block title %}
+Data list..!!
+{% endblock %}
+
+{% block content %}
+
+  <h1 class="display-2">Data list..!!</h1>
+
+  <!-- {% for item in datalist %}
+  <ul>
+      <li>{{ item.name }}</li>
+      <li>{{ item.subject }}</li>
+      <li>{{ item.dept }}</li>
+      <li>{{ item.date }}</li>
+  </ul>
+  {% endfor %} -->
+
+  <!-- {% for item in datalist %}
+  <ul>
+      <li>{{ item.name|upper }}</li>
+      <li>{{ item.subject|upper }}</li>
+      <li>{{ item.dept|upper }}</li>
+      <li>{{ item.date|upper }}</li>
+  </ul>
+  {% endfor %} -->
+
+  <!-- {% for item in datalist %}
+  <ul>
+      <li>{{ item.name|add:" Pvt Litd" }}</li>
+      <li>{{ item.subject|truncatechars:3 }}</li>
+      <li>{{ item.dept|upper }}</li>
+      <li>{{ item.date|date:"d-m-Y" }}</li>
+  </ul>
+  {% endfor %} -->
+
+  <!-- {% load cust_filters %}
+  {% for item in datalist %}
+  <ul>
+      <li>{{ item.name }}</li>
+      <li>{{ item.subject|lower }}</li>
+      <li>{{ item.dept|title }}</li>
+      <li>{{ item.date|date:"Y-m-d" }}</li>
+  </ul><hr>
+  {% endfor %} -->
+
+  {% load cust_filters %}
+  {% for item in datalist %}
+  <div class="row">
+    <div class="col">
+        <div class="card border-primary mb-3" style="max-width: 18rem;">
+            <div class="card-header">{{ item.name|t_n:2 }}</div>
+            <div class="card-body text-primary">
+                <h4 class="card-title">{{ item.subject|lower     }}</h4>
+                <h5 class="card-title">{{ item.dept|t_n:20 }}</h5>
+                <h6 class="card-title">{{ item.date|date:"Y-m-d" }}</h6>
+            </div>
+        </div>
+    </div>
+  </div>
+  {% endfor %}
+
+
+{% endblock %}
